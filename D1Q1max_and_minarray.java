@@ -1,4 +1,4 @@
-public class max_and_minarray {
+public class D1Q1max_and_minarray {
     public static void main(String[] args) {
         int[] arr = {23,12,43,25,67,45,65,56,89};
         pair minmax = minmax(arr);
