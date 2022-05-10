@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-public class D4Q16_3sum {
+public class D5Q16_3sum {
     public static void main(String[] args) {
         int arr[] = {-1,0,1,2,-1,-4};
         List<List<Integer>> ll = new LinkedList<>();
@@ -45,4 +45,3 @@ public class D4Q16_3sum {
         return llall;
     }
 }
-
