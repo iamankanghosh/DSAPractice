@@ -1,8 +1,6 @@
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 public class D4Q16_3sum {
     public static void main(String[] args) {
@@ -12,17 +10,33 @@ public class D4Q16_3sum {
         System.out.println(ll);
     }
     public static List<List<Integer>> threeSum(int[] arr) {
+        Arrays.sort(arr);
         List<List<Integer>> llall = new LinkedList<>();
-        Set<Integer> s = new HashSet<>();
+        // two pointer approach
         for (int i = 0; i < arr.length; i++) {
-            s.add(arr[i]);
-        }
+            if (i==0 || (i>0 && arr[i] != arr[i-1])) {
+                int lo = i+1 ;
+                int hi = arr.length-1 ;
+                int sum = 0 - arr[i];
+                while (lo < hi) {
+                    if (arr[lo] + arr[hi] == sum) {
+                        List<Integer> lls = new LinkedList<>();
+                        lls.add(arr[i]);
+                        lls.add(arr[lo]);
+                        lls.add(arr[hi]);
+                        llall.add(lls);
 
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i+1; j < arr.length; j++) {
-                if (s.contains(0-arr[i]-arr[j])) {
-                    if ( !llall.contains(Arrays.asList(arr[i],arr[j],0-arr[i]-arr[j]))) {
-                        llall.add(Arrays.asList(arr[i],arr[j],0-arr[i]-arr[j]));
+                        // code for leave same element ;
+                        while (lo<hi && arr[lo]== arr[lo+1]) { lo++ ;}
+                        while (lo<hi && arr[hi]== arr[hi-1]) { hi-- ;}
+                        lo++;
+                        hi--;
+                    }
+                    else if(sum > arr[lo]+arr[hi]){
+                        lo++;
+                    }
+                    else {
+                        hi--;
                     }
                 }
             }
