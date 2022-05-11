@@ -8,7 +8,7 @@ public class D5Q17container_with_most_water {
         int maxwater = 0;
         int l = 0;
         int r = arr.length-1;
-        while(l<r){Sorting
+        while(l<r){
             maxwater = Math.max(maxwater, (r-l)*Math.min(arr[l], arr[r]));
             if (arr[l]<arr[r]) {
                 l++;
@@ -20,5 +20,3 @@ public class D5Q17container_with_most_water {
         return maxwater ;
     }
 }
-
-
